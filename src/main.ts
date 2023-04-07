@@ -45,11 +45,11 @@ function timeSignal() {
     muteHttpExceptions: true, //エラーを起こしたときに、エラーの代わりに内容をHttpResponseを返してくれる
   };
 
-  // 通知しない時間帯のリスト
-  const noticeHours: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // 通知する時間帯のリスト
+  const noticeHours: number[] = [20, 21, 22, 23, 24];
 
   // 通知しない時間帯以外であれば
-  if (noticeHours.indexOf(getNowHours()) === -1) {
+  if (noticeHours.indexOf(getNowHours()) !== -1) {
     UrlFetchApp.fetch(discordWebHookURL, params);
   }
 }
