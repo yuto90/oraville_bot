@@ -21,12 +21,10 @@ function timeSignal() {
   // 送信するテキストを生成
   const generateContent = (): string => {
     let hours = getNowHours();
-    let ampm: string = "午前";
+    const ampm: string = hours > 12 ? "午後" : "午前";
 
-    if (hours > 12) {
-      hours -= 12;
-      ampm = "午後";
-    }
+    if (hours > 12) hours -= 12;
+
     const content = `ニーッコニッコ動画♪ ドワンゴが${ampm + hours}時くらいをお知らせします。ピッ、ピッ、ピッ、ピーン`;
 
     return content;
