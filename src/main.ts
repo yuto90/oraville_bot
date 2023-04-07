@@ -46,7 +46,7 @@ function timeSignal() {
   };
 
   // 通知する時間帯のリスト
-  const noticeHours: number[] = [20, 21, 22, 23, 24];
+  const noticeHours: number[] = [20, 21, 22, 23, 0];
 
   // 通知しない時間帯以外であれば
   if (noticeHours.indexOf(getNowHours()) !== -1) {
