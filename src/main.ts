@@ -16,12 +16,12 @@ function timeSignal() {
   }
 
   // 今の時間のnumberを0~23で返却
-  const getNowHours = (): number => new Date().getHours();
+  const getNowHours = () => new Date().getHours();
 
   // 送信するテキストを生成
-  const generateContent = (): string => {
+  const generateContent = () => {
     let hours = getNowHours();
-    const ampm: string = hours > 12 ? "午後" : "午前";
+    const ampm = hours > 12 ? "午後" : "午前";
 
     if (hours > 12) hours -= 12;
 
@@ -46,9 +46,9 @@ function timeSignal() {
   };
 
   // 通知する時間帯のリスト
-  const noticeHours: number[] = [20, 21, 22, 23, 0];
+  const noticeHours = [20, 21, 22, 23, 0];
 
-  // 通知しない時間帯以外であれば
+  // 通知させる時間帯であればwebhook経由でbotにメッセージを送らせる
   if (noticeHours.indexOf(getNowHours()) !== -1) {
     UrlFetchApp.fetch(discordWebHookURL, params);
   }
