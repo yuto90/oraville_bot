@@ -1,0 +1,9 @@
+# Clasp ignore file
+# Ignore all files by default
+*
+
+# Unignore specific files
+!appsscript.json
+!src/timeSignal.ts
+!src/qiitaArticle.ts
+!README.md
