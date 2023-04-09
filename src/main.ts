@@ -1,4 +1,19 @@
-function timeSignal() {
+// 今の時間のnumberを0~23で返却
+export const getNowHours = () => new Date().getHours();
+
+// 送信するテキストを生成
+export const generateContent = () => {
+  let hours = getNowHours();
+  const ampm = hours > 12 ? "午後" : "午前";
+
+  if (hours > 12) hours -= 12;
+
+  const content = `ニーッコニッコ動画♪ ドワンゴが${ampm + hours}時くらいをお知らせします。ピッ、ピッ、ピッ、ピーン`;
+
+  return content;
+};
+
+export function timeSignal() {
   // discord側で作成したボットのウェブフックURL
   const discordWebHookURL = PropertiesService.getScriptProperties().getProperty("WEBHOOK_URL")!;
 
@@ -14,21 +29,6 @@ function timeSignal() {
     contentType: string;
     muteHttpExceptions: boolean;
   }
-
-  // 今の時間のnumberを0~23で返却
-  const getNowHours = () => new Date().getHours();
-
-  // 送信するテキストを生成
-  const generateContent = () => {
-    let hours = getNowHours();
-    const ampm = hours > 12 ? "午後" : "午前";
-
-    if (hours > 12) hours -= 12;
-
-    const content = `ニーッコニッコ動画♪ ドワンゴが${ampm + hours}時くらいをお知らせします。ピッ、ピッ、ピッ、ピーン`;
-
-    return content;
-  };
 
   // 投稿するチャット内容と設定
   const message: Message = {
