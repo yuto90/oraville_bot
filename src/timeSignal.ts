@@ -15,7 +15,7 @@ export const generateContent = () => {
 
 export function timeSignal() {
   // discord側で作成したボットのウェブフックURL
-  const discordWebHookURL = PropertiesService.getScriptProperties().getProperty("WEBHOOK_URL")!;
+  const discordWebHookURL = PropertiesService.getScriptProperties().getProperty("TEST_WEBHOOK_URL")!;
 
   interface Message {
     content: string;

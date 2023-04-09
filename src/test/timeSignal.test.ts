@@ -1,4 +1,4 @@
-import { getNowHours, generateContent } from "../main";
+import { getNowHours, generateContent } from "../timeSignal";
 
 test("現在時間がnumberで取得できていること", () => {
   const result = getNowHours();
